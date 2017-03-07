@@ -1,0 +1,10 @@
+{
+    "title": "Faqs",
+    "alias": "faqs",
+    "table_name": "faqs_faqs",
+    "title_field": "title",
+    "content_field": "answer",
+    "image_field": "",
+    "published": "1",
+    "is_processed": "0"
+}

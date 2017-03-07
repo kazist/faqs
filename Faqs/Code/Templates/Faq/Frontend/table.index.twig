@@ -1,0 +1,27 @@
+{# empty Twig template #}
+
+{{ set_assets('applications/Faq/Components/assets/css/faq.css') }}
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for key,faq in items %}
+        <div class="panel panel-default">
+            <div class="panel-heading bg-light-blue" role="tab" id="heading{{ faq.id }}">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}" title="{{ faq.title }}">
+                        {{ faq.title }}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{ faq.id }}" class="panel-collapse collapse {% if not key %}in{% endif %}" role="tabpanel" aria-labelledby="heading{{ faq.id }}">
+                <div class="panel-body">
+                    {{ faq.answer }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="clr"></div>
+
+{% include "items.pagination.twig"%}
+

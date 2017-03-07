@@ -1,0 +1,19 @@
+{
+    "title": "Faqs",
+    "description": "Faqs Advertisement",
+    "alias": "faqs",
+    "icon": "fa-picture-o",
+    "home_link": "faqs\/faqs",
+    "is_core": "1",
+    "menulist": [{
+            "title": "Faqs",
+            "alias": "admin_faqs_faqs",
+            "url": "admin/faqs/faqs",
+            "children": []
+        }, {
+            "title": "Categories",
+            "alias": "admin_faqs_categories",
+            "url": "admin/faqs/categories",
+            "children": []
+        }]
+}

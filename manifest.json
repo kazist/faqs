@@ -1,0 +1,9 @@
+{
+    "name": "faqs",
+    "title": "Faq Listing",
+    "icon": "icons\/faqs.png",
+    "extension": "component",
+    "path": "faqs\/",
+    "description": "Faq Listing",
+    "version": 1
+}

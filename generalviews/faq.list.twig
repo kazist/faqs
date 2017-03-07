@@ -1,0 +1,55 @@
+{# empty Twig template #}
+
+{% set params = { 'category_id': category_id, 'action': action, 'offset': offset_faqs , 'limit': '10'} %}
+
+{{ set_assets('applications/Faqs/assets/js/faq.js') }}
+
+{% set faqs = callFunction( "Faqs.Categories.Code.Models.CategoriesModel", 'getFaqs', params ) %}
+{% set total_faqs = callFunction( "Faqs.Categories.Code.Models.CategoriesModel", 'getCategoryTotalFaqs', params ) %}
+
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {% for key,faq in faqs %}
+        <div class="panel panel-default">
+            <div class="panel-heading bg-light-blue" role="tab" id="heading{{ faq.id }}">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}" title='{{ faq.title }}'>
+                        {{ faq.title }}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{ faq.id }}" class="panel-collapse collapse {% if not key %}in{% endif %}" role="tabpanel" aria-labelledby="heading{{ faq.id }}">
+                <div class="panel-body">
+                    {{ faq.answer }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="clearfix"></div>
+{% if total_faqs > 10 %}
+
+    <div class="faqs-navigation">
+
+        {% if offset_faqs %}
+            <div class="previous-faqs pull-left">
+                <a class="btn btn-default btn-sm btn-flat" offset="{{ offset_faqs|default('0') }}" action="previous" category_id="{{ category_id }}">
+                    <i class="fa fa-arrow-left"></i>
+                    Pre
+                </a>
+            </div>
+        {% endif %}
+
+        {% if (offset_faqs + 10) < total_faqs %}
+            <div class="next-faqs pull-right">
+                <a class="btn btn-default btn-sm btn-flat" offset="{{ offset_faqs|default('0')  }}" action="next" category_id="{{ category_id }}">
+                    <i class="fa fa-arrow-right"></i>
+                    Next 
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+{% endif %}

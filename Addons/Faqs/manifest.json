@@ -1,0 +1,10 @@
+{
+    "name": "faqs",
+    "title": "Faqs Listing",
+    "explanation": "Faqs Listing",
+    "description": "Faqs Listing",
+    "version": 1,
+    "icon": "assets\/faqs\/addons\/faqs\/icon.png",
+    "extension": "addon",
+    "path": "faqs\/addons\/faqs\/"
+}
