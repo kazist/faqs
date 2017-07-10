@@ -4,16 +4,19 @@
     "alias": "faqs",
     "icon": "fa-picture-o",
     "home_link": "faqs\/faqs",
+    "icon": "fa fa-question-circle",
     "is_core": "1",
     "menulist": [{
             "title": "Faqs",
             "alias": "admin_faqs_faqs",
             "url": "admin/faqs/faqs",
+            "icon": "fa fa-question-circle",
             "children": []
         }, {
             "title": "Categories",
             "alias": "admin_faqs_categories",
             "url": "admin/faqs/categories",
+            "icon": "fa fa-navicon",
             "children": []
         }]
 }
