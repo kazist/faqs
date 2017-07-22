@@ -5,6 +5,7 @@
     "icon": "fa-picture-o",
     "home_link": "faqs\/faqs",
     "icon": "fa fa-question-circle",
+    "path": "applications/Faqs",
     "is_core": "1",
     "menulist": [{
             "title": "Faqs",
