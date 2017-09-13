@@ -2,32 +2,49 @@
 {{ set_assets('applications/Faqs/Addons/Faqs/assets/css/style.css') }}
 
 
-<div class="block-faqs">
+{% if show_answer %}
 
     {% if faqs|length > 0 %}
-        <ul class="list-unstyled check-style">
-            {% for faq in faqs %}
-                {% set faq_url =  generate_url('faqs.faqs.detail', {'id': faq.id}) %}
-                <li>
-                    <i class="fa fa-angle-right color-green"></i> 
-                    <a href="{{ faq_url }}">
-                        {{ faq.title  }}
-                    </a>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        No Latest Faqs
+        {% for faq in faqs %}
+            <h4>
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}" title="{{ faq.title }}">
+                    {{ faq.title }}
+                </a>
+            </h4>
+
+            <p>
+                {{ faq.answer }}
+            </p>
+            <div class="clearfix"></div>
+        {% endfor %}
     {% endif %}
-</div>
+{% else%}
+    <div class="block-faqs">
 
-<div class="headline">
-    <h3>Business Hour</h3>
-</div>
+        {% if faqs|length > 0 %}
+            <ul class="list-unstyled check-style">
+                {% for faq in faqs %}
+                    {% set faq_url =  generate_url('faqs.faqs.detail', {'id': faq.id}) %}
+                    <li>
+                        <i class="fa fa-angle-right color-green"></i> 
+                        <a href="{{ faq_url }}">
+                            {{ faq.title  }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            No Latest Faqs
+        {% endif %}
+    </div>
 
-<ul class="list-unstyled margin-bottom-30">
-    <li><strong>Monday-Friday:</strong> 8am to 6pm</li>
-    <li><strong>Saturday:</strong> 8am to 3pm</li>
-    <li><strong>Sunday:</strong> Closed</li>
-</ul>
+    <div class="headline">
+        <h3>Business Hour</h3>
+    </div>
+
+    <ul class="list-unstyled margin-bottom-30">
+        <li><strong>Monday-Friday:</strong> 8am to 6pm</li>
+        <li><strong>Saturday:</strong> 8am to 3pm</li>
+        <li><strong>Sunday:</strong> Closed</li>
+    </ul>
+{% endif %}

@@ -18,12 +18,13 @@ use Faqs\Addons\Faqs\Models\FaqsModel;
  */
 class FaqsController extends AddonController {
 
-    function indexAction($offset = 0, $limit = 6) {
+    function indexAction($limit = 6, $show_answer = false) {
 
         $model = new FaqsModel;
 
-        $faqs = $model->getFaqs();
+        $faqs = $model->getFaqs($limit);
 
+        $data_arr['show_answer'] = $show_answer;
         $data_arr['faqs'] = $faqs;
 
         $this->html = $this->render('Faqs:Addons:Faqs:views:faqs.twig', $data_arr);

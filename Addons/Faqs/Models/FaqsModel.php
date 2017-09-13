@@ -17,7 +17,7 @@ class FaqsModel {
         return 'Hello World!';
     }
 
-    public function getFaqs() {
+    public function getFaqs($limit) {
 
 
         $query = new Query();
@@ -28,7 +28,7 @@ class FaqsModel {
         $query->orderBy('ff.id', 'DESC');
 
         $query->setFirstResult(0);
-        $query->setMaxResults(10);
+        $query->setMaxResults($limit);
 
         $records = $query->loadObjectList();
 

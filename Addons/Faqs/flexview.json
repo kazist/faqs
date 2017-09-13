@@ -13,7 +13,14 @@
         "suffix_content": "",
         "prefix_content": "",
         "main_content": "",
+        "params": {
+            "limit": 10
+        },
+        "setting": [{ 
+                "name": "limit",
+                "label": "Limit",
+                "type": "text"
+            }],
         "positions": ["sidebar"]
-
     }
 ]
