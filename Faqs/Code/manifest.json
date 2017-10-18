@@ -3,11 +3,11 @@
     "title": "Faqs List",
     "explanation": "Faqs List",
     "description": "Faqs List",
-    "version": 19,
+    "version": 20,
     "has_view": "1",
     "tie_field": "0",
     "email_on_new": "0",
     "email_on_edit": "0",
     "email_on_delete": "0",
-    "date_file_modified": "2016-12-10 09:46:30"
+    "date_file_modified": "2017-10-18 09:57:30"
 }

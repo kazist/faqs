@@ -96,7 +96,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -107,6 +107,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set title
      *
      * @param string $title
+     *
      * @return Faqs
      */
     public function setTitle($title)
@@ -119,7 +120,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -127,9 +128,10 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Set category_id
+     * Set categoryId
      *
      * @param integer $categoryId
+     *
      * @return Faqs
      */
     public function setCategoryId($categoryId)
@@ -140,9 +142,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get category_id
+     * Get categoryId
      *
-     * @return integer 
+     * @return integer
      */
     public function getCategoryId()
     {
@@ -153,6 +155,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set answer
      *
      * @param string $answer
+     *
      * @return Faqs
      */
     public function setAnswer($answer)
@@ -165,7 +168,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get answer
      *
-     * @return string 
+     * @return string
      */
     public function getAnswer()
     {
@@ -176,6 +179,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set hits
      *
      * @param integer $hits
+     *
      * @return Faqs
      */
     public function setHits($hits)
@@ -188,7 +192,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get hits
      *
-     * @return integer 
+     * @return integer
      */
     public function getHits()
     {
@@ -199,6 +203,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set featured
      *
      * @param integer $featured
+     *
      * @return Faqs
      */
     public function setFeatured($featured)
@@ -211,7 +216,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get featured
      *
-     * @return integer 
+     * @return integer
      */
     public function getFeatured()
     {
@@ -222,6 +227,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set published
      *
      * @param integer $published
+     *
      * @return Faqs
      */
     public function setPublished($published)
@@ -234,7 +240,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get published
      *
-     * @return integer 
+     * @return integer
      */
     public function getPublished()
     {
@@ -242,9 +248,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get created_by
+     * Get createdBy
      *
-     * @return integer 
+     * @return integer
      */
     public function getCreatedBy()
     {
@@ -252,9 +258,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get date_created
+     * Get dateCreated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateCreated()
     {
@@ -262,9 +268,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get modified_by
+     * Get modifiedBy
      *
-     * @return integer 
+     * @return integer
      */
     public function getModifiedBy()
     {
@@ -272,9 +278,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get date_modified
+     * Get dateModified
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateModified()
     {
@@ -288,3 +294,4 @@ class Faqs extends \Kazist\Table\BaseTable
         // Add your code here
     }
 }
+

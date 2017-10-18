@@ -67,9 +67,10 @@
             ],
             "has_label": [
                 "title",
-                "answer",
-                "created_by",
-                "date_created"
+                "category_id",
+                "hits",
+                "featured",
+                "published"
             ]
         }
     },
@@ -165,7 +166,7 @@
             "dropdown_filter": "1",
             "nullable": "1",
             "name": "answer",
-            "html_type": "textarea",
+            "html_type": "editor",
             "mysql_type": "text",
             "view_side": "both",
             "index": "",
@@ -178,7 +179,8 @@
             "parameters": {
                 "general": {
                     "col": "",
-                    "row": ""
+                    "row": "",
+                    "editor_type": "advanced"
                 },
                 "source": [],
                 "save": {
@@ -407,7 +409,7 @@
             "uu.name AS created_by_name",
             "ff.date_created",
             "ff.modified_by",
-            "uu_6042.name AS modified_by_name",
+            "uu_9656.name AS modified_by_name",
             "ff.date_modified"
         ],
         "leftjoin": [
@@ -425,9 +427,9 @@
             },
             {
                 "table": "Users\\Users\\Code\\Tables\\Users",
-                "alias": "uu_6042",
+                "alias": "uu_9656",
                 "name": "#__users_users",
-                "on": "ff.modified_by = uu_6042.id"
+                "on": "ff.modified_by = uu_9656.id"
             }
         ]
     }

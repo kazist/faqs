@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Faqs extends \Kazist\Table\BaseTable {
-
+class Faqs extends \Kazist\Table\BaseTable
+{
     /**
      * @var integer
      *
@@ -46,7 +46,7 @@ class Faqs extends \Kazist\Table\BaseTable {
     /**
      * @var integer
      *
-     * @ORM\Column(name="hits", type="integer", length=11)
+     * @ORM\Column(name="hits", type="integer", length=11, nullable=false)
      */
     protected $hits;
 
@@ -92,12 +92,14 @@ class Faqs extends \Kazist\Table\BaseTable {
      */
     protected $date_modified;
 
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -107,7 +109,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      * @param string $title
      * @return Faqs
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = $title;
 
         return $this;
@@ -118,7 +121,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return string 
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
@@ -128,7 +132,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      * @param integer $categoryId
      * @return Faqs
      */
-    public function setCategoryId($categoryId) {
+    public function setCategoryId($categoryId)
+    {
         $this->category_id = $categoryId;
 
         return $this;
@@ -139,7 +144,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return integer 
      */
-    public function getCategoryId() {
+    public function getCategoryId()
+    {
         return $this->category_id;
     }
 
@@ -149,7 +155,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      * @param string $answer
      * @return Faqs
      */
-    public function setAnswer($answer) {
+    public function setAnswer($answer)
+    {
         $this->answer = $answer;
 
         return $this;
@@ -160,7 +167,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return string 
      */
-    public function getAnswer() {
+    public function getAnswer()
+    {
         return $this->answer;
     }
 
@@ -170,7 +178,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      * @param integer $hits
      * @return Faqs
      */
-    public function setHits($hits) {
+    public function setHits($hits)
+    {
         $this->hits = $hits;
 
         return $this;
@@ -181,7 +190,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return integer 
      */
-    public function getHits() {
+    public function getHits()
+    {
         return $this->hits;
     }
 
@@ -191,7 +201,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      * @param integer $featured
      * @return Faqs
      */
-    public function setFeatured($featured) {
+    public function setFeatured($featured)
+    {
         $this->featured = $featured;
 
         return $this;
@@ -202,7 +213,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return integer 
      */
-    public function getFeatured() {
+    public function getFeatured()
+    {
         return $this->featured;
     }
 
@@ -212,7 +224,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      * @param integer $published
      * @return Faqs
      */
-    public function setPublished($published) {
+    public function setPublished($published)
+    {
         $this->published = $published;
 
         return $this;
@@ -223,7 +236,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return integer 
      */
-    public function getPublished() {
+    public function getPublished()
+    {
         return $this->published;
     }
 
@@ -232,7 +246,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return integer 
      */
-    public function getCreatedBy() {
+    public function getCreatedBy()
+    {
         return $this->created_by;
     }
 
@@ -241,7 +256,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return \DateTime 
      */
-    public function getDateCreated() {
+    public function getDateCreated()
+    {
         return $this->date_created;
     }
 
@@ -250,7 +266,8 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return integer 
      */
-    public function getModifiedBy() {
+    public function getModifiedBy()
+    {
         return $this->modified_by;
     }
 
@@ -259,15 +276,15 @@ class Faqs extends \Kazist\Table\BaseTable {
      *
      * @return \DateTime 
      */
-    public function getDateModified() {
+    public function getDateModified()
+    {
         return $this->date_modified;
     }
-
     /**
      * @ORM\PreUpdate
      */
-    public function onPreUpdate() {
+    public function onPreUpdate()
+    {
         // Add your code here
     }
-
 }
