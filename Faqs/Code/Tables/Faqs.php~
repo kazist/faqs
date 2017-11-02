@@ -46,9 +46,16 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * @var integer
      *
-     * @ORM\Column(name="hits", type="integer", length=11, nullable=false)
+     * @ORM\Column(name="hits", type="integer", length=11, nullable=true)
      */
     protected $hits;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ordering", type="integer", length=11, nullable=true)
+     */
+    protected $ordering;
 
     /**
      * @var integer
@@ -67,36 +74,36 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * @var integer
      *
-     * @ORM\Column(name="created_by", type="integer", length=11, nullable=false)
+     * @ORM\Column(name="created_by", type="integer", length=11, nullable=true)
      */
     protected $created_by;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime", nullable=false)
+     * @ORM\Column(name="date_created", type="datetime", nullable=true)
      */
     protected $date_created;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=false)
-     */
-    protected $modified_by;
-
-    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_modified", type="datetime", nullable=false)
+     * @ORM\Column(name="date_modified", type="datetime", nullable=true)
      */
     protected $date_modified;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=true)
+     */
+    protected $modified_by;
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -107,6 +114,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set title
      *
      * @param string $title
+     *
      * @return Faqs
      */
     public function setTitle($title)
@@ -119,7 +127,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -127,9 +135,10 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Set category_id
+     * Set categoryId
      *
      * @param integer $categoryId
+     *
      * @return Faqs
      */
     public function setCategoryId($categoryId)
@@ -140,9 +149,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get category_id
+     * Get categoryId
      *
-     * @return integer 
+     * @return integer
      */
     public function getCategoryId()
     {
@@ -153,6 +162,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set answer
      *
      * @param string $answer
+     *
      * @return Faqs
      */
     public function setAnswer($answer)
@@ -165,7 +175,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get answer
      *
-     * @return string 
+     * @return string
      */
     public function getAnswer()
     {
@@ -176,6 +186,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set hits
      *
      * @param integer $hits
+     *
      * @return Faqs
      */
     public function setHits($hits)
@@ -188,7 +199,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get hits
      *
-     * @return integer 
+     * @return integer
      */
     public function getHits()
     {
@@ -196,9 +207,34 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
+     * Set ordering
+     *
+     * @param integer $ordering
+     *
+     * @return Faqs
+     */
+    public function setOrdering($ordering)
+    {
+        $this->ordering = $ordering;
+
+        return $this;
+    }
+
+    /**
+     * Get ordering
+     *
+     * @return integer
+     */
+    public function getOrdering()
+    {
+        return $this->ordering;
+    }
+
+    /**
      * Set featured
      *
      * @param integer $featured
+     *
      * @return Faqs
      */
     public function setFeatured($featured)
@@ -211,7 +247,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get featured
      *
-     * @return integer 
+     * @return integer
      */
     public function getFeatured()
     {
@@ -222,6 +258,7 @@ class Faqs extends \Kazist\Table\BaseTable
      * Set published
      *
      * @param integer $published
+     *
      * @return Faqs
      */
     public function setPublished($published)
@@ -234,7 +271,7 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * Get published
      *
-     * @return integer 
+     * @return integer
      */
     public function getPublished()
     {
@@ -242,9 +279,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get created_by
+     * Get createdBy
      *
-     * @return integer 
+     * @return integer
      */
     public function getCreatedBy()
     {
@@ -252,9 +289,9 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get date_created
+     * Get dateCreated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateCreated()
     {
@@ -262,23 +299,23 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get modified_by
+     * Get dateModified
      *
-     * @return integer 
-     */
-    public function getModifiedBy()
-    {
-        return $this->modified_by;
-    }
-
-    /**
-     * Get date_modified
-     *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateModified()
     {
         return $this->date_modified;
+    }
+
+    /**
+     * Get modifiedBy
+     *
+     * @return integer
+     */
+    public function getModifiedBy()
+    {
+        return $this->modified_by;
     }
     /**
      * @ORM\PreUpdate
@@ -288,3 +325,4 @@ class Faqs extends \Kazist\Table\BaseTable
         // Add your code here
     }
 }
+

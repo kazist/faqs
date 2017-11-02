@@ -46,9 +46,16 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * @var integer
      *
-     * @ORM\Column(name="hits", type="integer", length=11, nullable=false)
+     * @ORM\Column(name="hits", type="integer", length=11, nullable=true)
      */
     protected $hits;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ordering", type="integer", length=11, nullable=true)
+     */
+    protected $ordering;
 
     /**
      * @var integer
@@ -67,30 +74,30 @@ class Faqs extends \Kazist\Table\BaseTable
     /**
      * @var integer
      *
-     * @ORM\Column(name="created_by", type="integer", length=11, nullable=false)
+     * @ORM\Column(name="created_by", type="integer", length=11, nullable=true)
      */
     protected $created_by;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime", nullable=false)
+     * @ORM\Column(name="date_created", type="datetime", nullable=true)
      */
     protected $date_created;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=false)
-     */
-    protected $modified_by;
-
-    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_modified", type="datetime", nullable=false)
+     * @ORM\Column(name="date_modified", type="datetime", nullable=true)
      */
     protected $date_modified;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=true)
+     */
+    protected $modified_by;
 
 
     /**
@@ -200,6 +207,30 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
+     * Set ordering
+     *
+     * @param integer $ordering
+     *
+     * @return Faqs
+     */
+    public function setOrdering($ordering)
+    {
+        $this->ordering = $ordering;
+
+        return $this;
+    }
+
+    /**
+     * Get ordering
+     *
+     * @return integer
+     */
+    public function getOrdering()
+    {
+        return $this->ordering;
+    }
+
+    /**
      * Set featured
      *
      * @param integer $featured
@@ -268,16 +299,6 @@ class Faqs extends \Kazist\Table\BaseTable
     }
 
     /**
-     * Get modifiedBy
-     *
-     * @return integer
-     */
-    public function getModifiedBy()
-    {
-        return $this->modified_by;
-    }
-
-    /**
      * Get dateModified
      *
      * @return \DateTime
@@ -285,6 +306,16 @@ class Faqs extends \Kazist\Table\BaseTable
     public function getDateModified()
     {
         return $this->date_modified;
+    }
+
+    /**
+     * Get modifiedBy
+     *
+     * @return integer
+     */
+    public function getModifiedBy()
+    {
+        return $this->modified_by;
     }
     /**
      * @ORM\PreUpdate

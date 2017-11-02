@@ -21,6 +21,15 @@ use Kazist\Service\Database\Query;
  */
 class FaqsModel extends BaseModel {
 
+    public function appendSearchQuery($query) {
+
+        $query = parent:: appendSearchQuery($query);
+
+        $query->orderBy('ff.ordering ', 'ASC');
+
+        return $query;
+    }
+
     public function getFaqs($category_id) {
 
         $query = new Query();
@@ -65,6 +74,24 @@ class FaqsModel extends BaseModel {
         $item_obj->faqs = $this->getFaqs($item->id);
 
         return $item_obj;
+    }
+
+    public function save($form_data) {
+
+        $id = parent::save($form_data);
+
+        $factory = new KazistFactory();
+
+        if (!(int) $form_data['ordering']) {
+
+            $data = new \stdClass();
+            $data->id = $id;
+            $data->ordering = $id;
+
+            $factory->saveRecord('#__faqs_faqs', $data);
+        }
+
+        return $id;
     }
 
 }
