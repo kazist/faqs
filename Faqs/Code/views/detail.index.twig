@@ -1,10 +1,12 @@
 {# empty Twig template #}
 {% import "form.macro.twig" as forms %}
 
-<h4>
-    {{ item.title }}
-</h4>
+<div class="faqs-list">
+    <h4>
+        {{ item.title }}
+    </h4>
 
-<p>
-    {{ item.answer }}
-</p>
+    <p>
+        {{ item.answer|raw }}
+    </p>
+</div>

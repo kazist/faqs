@@ -2,20 +2,23 @@
 
 {{ set_assets('applications/Faqs/assets/css/faq.css') }}
 
+<div class="faqs-list">
+    {% for key,faq in items %}
+        <div class="faqs-item">
+            <h3>
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}" title="{{ faq.title }}">
+                    {{ faq.title }}
+                </a>
+            </h3>
+            <hr>
 
-{% for key,faq in items %}
-    <h4>
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}" title="{{ faq.title }}">
-            {{ faq.title }}
-        </a>
-    </h4>
-
-    <p>
-        {{ faq.answer|raw }}
-    </p>
-    <div class="clearfix"></div>
-{% endfor %}
-
+            <p>
+                {{ faq.answer|raw }}
+            </p>
+            <div class="clearfix"></div>
+        </div>
+    {% endfor %}
+</div>
 
 {% include "items.pagination.twig"%}
 
