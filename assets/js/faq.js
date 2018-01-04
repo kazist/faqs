@@ -6,8 +6,37 @@
 
 
 jQuery(document).ready(function () {
+    
     faq.init();
+
+    jQuery(".toggle-accordion").on("click", function () {
+        
+        var accordionId = jQuery(this).attr("accordion-id"),
+                numPanelOpen = jQuery(accordionId + ' .collapse.in').length;
+
+        jQuery(this).toggleClass("active");
+
+        if (numPanelOpen == 0) {
+            openAllPanels(accordionId);
+        } else {
+            closeAllPanels(accordionId);
+        }
+    })
+
+    openAllPanels = function (aId) {
+        console.log("setAllPanelOpen");
+        jQuery(aId + ' .panel-collapse:not(".in")').collapse('show');
+    }
+    closeAllPanels = function (aId) {
+        console.log("setAllPanelclose");
+        jQuery(aId + ' .panel-collapse.in').collapse('hide');
+    }
+
+
 });
+
+
+
 
 faq = function () {
     return {

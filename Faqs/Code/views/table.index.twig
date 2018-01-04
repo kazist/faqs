@@ -1,24 +1,40 @@
 {# empty Twig template #}
 
 {{ set_assets('applications/Faqs/assets/css/faq.css') }}
+{{ set_assets('applications/Faqs/assets/js/faq.js') }}
 
-<div class="faqs-list">
+
+<h1>Frequently Asked Questions</h1>
+<div class="accordion-option">
+    <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+</div>
+<div class="clearfix"></div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     {% for key,faq in items %}
-        <div class="faqs-item">
-            <h3>
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}" title="{{ faq.title }}">
-                    {{ faq.title }}
-                </a>
-            </h3>
-            <hr>
 
-            <p>
-                {{ faq.answer|raw }}
-            </p>
-            <div class="clearfix"></div>
+        {% set collapse_in = '' %}
+        {% if not key %}
+            {% set collapse_in = 'in' %}
+        {% endif %}
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading{{ key }}">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ key }}" aria-expanded="true" aria-controls="collapse{{ key }}">
+                        {{ faq.title }}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{ key }}" class="panel-collapse collapse{{ collapse_in|default('') }}" role="tabpanel" aria-labelledby="heading{{ key }}">
+                <div class="panel-body">
+                    {{ faq.answer|raw }}
+                </div>
+            </div>
         </div>
     {% endfor %}
+
 </div>
+
 
 {% include "items.pagination.twig"%}
 
